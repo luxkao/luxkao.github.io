@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+h1 {
+    font: normal 32pt Montserrat
+}
+
+body {
+    background-color: cadetblue;
+    min-height: 100vh;
+    color: white;
+    font: normal 20pt Montserrat;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-size: 12pt;
+    padding: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
