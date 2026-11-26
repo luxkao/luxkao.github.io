@@ -1,0 +1,7 @@
+# Editorial notes: sources, translation drafts and claims awaiting the author's confirmation.
+# Kept local by default. Delete this line to publish it with the site.
+CONTENT_REVIEW.md
+
+# OS noise
+.DS_Store
+Thumbs.db

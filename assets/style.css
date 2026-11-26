@@ -1,0 +1,570 @@
+/* ---------------------------------------------------------------
+   Lucas de Melo Falcão — personal homepage
+   Single stylesheet. No webfonts, no frameworks, no dependencies.
+   --------------------------------------------------------------- */
+
+:root {
+  --paper: #fbfaf7;
+  --ink: #1b1e1c;
+  --ink-soft: #33393a;
+  --muted: #5c605c;
+  --rule: #dcd8cf;
+  --rule-strong: #c3bdb1;
+  --accent: #3a5343;
+  --accent-ink: #2c4033;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+    "Hoefler Text", Georgia, "Times New Roman", serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* Measure: 40rem ≈ 73 characters at the default size — wide enough that
+     publication entries do not turn into columns of single sentences, short
+     enough to stay readable. */
+  --measure: 40rem;
+  --gutter: 1.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 4rem;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+p {
+  margin: 0 0 1.15em;
+}
+
+/* In-page navigation: leave a little air above the target heading. */
+.about,
+.section,
+.site-footer {
+  scroll-margin-top: 1.25rem;
+}
+
+a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+  text-decoration-color: var(--rule-strong);
+  transition: text-decoration-color 120ms linear, color 120ms linear;
+}
+
+a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+cite {
+  font-style: italic;
+}
+
+/* Skip link ------------------------------------------------ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header --------------------------------------------------- */
+
+.site-header {
+  padding: 3.75rem 0 0;
+}
+
+/* Rules sit on the text column, not on the window, so that the hairlines,
+   the masthead and the body text share one measure. */
+.site-header .wrap {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-name {
+  margin: 0 0 0.4rem;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 1.4rem + 1.1vw, 2.05rem);
+  line-height: 1.16;
+  letter-spacing: -0.014em;
+  font-weight: 600;
+}
+
+.site-name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-name a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--rule-strong);
+}
+
+.site-role {
+  margin: 0 0 1.7rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.035em;
+  color: var(--muted);
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-bottom: 0.15em;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--rule-strong);
+  color: var(--ink);
+}
+
+/* About ---------------------------------------------------- */
+
+.about {
+  padding-top: 2.75rem;
+}
+
+.about > p {
+  max-width: 38em;
+}
+
+.about > p:first-of-type {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: -0.002em;
+}
+
+/* Sections ------------------------------------------------- */
+
+.section {
+  margin-top: 3.5rem;
+  padding-top: 1.7rem;
+  border-top: 1px solid var(--rule);
+}
+
+.section h2,
+.footer-heading {
+  margin: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.about h2 {
+  margin: 0 0 1.35rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.section > p {
+  max-width: 38em;
+}
+
+/* Note under the publications heading ---------------------- */
+
+.note {
+  max-width: 38em;
+  font-size: 0.9063rem;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 2px solid var(--rule);
+  padding-left: 0.95rem;
+  margin: 1.6rem 0 2.6rem;
+}
+
+/* Publications -------------------------------------------- */
+
+.pub + .pub {
+  margin-top: 2.15rem;
+  padding-top: 2.15rem;
+  border-top: 1px solid var(--rule);
+}
+
+.pub-title {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+  line-height: 1.34;
+  font-weight: 600;
+  letter-spacing: 0.001em;
+  text-wrap: pretty;
+}
+
+.pub-original {
+  margin: 0 0 0.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.pub-original cite {
+  color: var(--ink-soft);
+}
+
+.pub-title-kind {
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-style: normal;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.pub-title-kind::before {
+  content: "— ";
+}
+
+.pub-authors {
+  margin: 0 0 0.3rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.pub-authors .self {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pub-source {
+  margin: 0 0 0.45rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+  color: var(--muted);
+}
+
+.pub-links {
+  margin: 0 0 1.15rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.pub-links a,
+.award a {
+  text-decoration-color: var(--rule-strong);
+}
+
+.sep {
+  color: var(--rule-strong);
+  padding-inline: 0.15em;
+}
+
+.label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.pub-summary {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.66;
+  max-width: 38em;
+}
+
+.pub-foot {
+  margin: 0.85rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 38em;
+}
+
+/* Award ---------------------------------------------------- */
+
+.award {
+  margin: 0 0 1.2rem;
+  padding: 0.75rem 0.7rem 0.8rem 0.95rem;
+  border-left: 2px solid var(--accent);
+  background-color: rgba(58, 83, 67, 0.05);
+  font-size: 0.9375rem;
+  line-height: 1.58;
+  color: var(--ink-soft);
+  max-width: 38em;
+}
+
+.award-links {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+}
+
+.award-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  margin-bottom: 0.2rem;
+}
+
+/* Closing note -------------------------------------------- */
+
+.pub-end {
+  max-width: 38em;
+  margin-top: 2.15rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Interests ------------------------------------------------ */
+
+.interest-list {
+  margin: 0;
+  padding: 0;
+  max-width: 38em;
+}
+
+.interest-list dt {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.002em;
+  margin-bottom: 0.3rem;
+}
+
+.interest-list dd {
+  margin: 0 0 1.75rem;
+  font-size: 1rem;
+  line-height: 1.66;
+}
+
+.interest-list dd:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Footer --------------------------------------------------- */
+
+.site-footer {
+  margin-top: 3.5rem;
+}
+
+.site-footer .wrap {
+  padding-top: 1.7rem;
+  border-top: 1px solid var(--rule);
+}
+
+.contact-line {
+  margin: 0 0 1.1rem;
+  font-size: 1.0625rem;
+}
+
+.site-footer p {
+  font-size: 0.9375rem;
+}
+
+.footer-note {
+  max-width: 34em;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Small screens -------------------------------------------- */
+
+@media (max-width: 40rem) {
+  :root {
+    --gutter: 1.15rem;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-size: 1.03125rem;
+    line-height: 1.64;
+  }
+
+  .site-header {
+    padding-top: 2.5rem;
+  }
+
+  .site-header .wrap {
+    padding-bottom: 1.35rem;
+  }
+
+  .site-role {
+    margin-bottom: 1.35rem;
+  }
+
+  .about {
+    padding-top: 2.15rem;
+  }
+
+  .about > p:first-of-type {
+    font-size: 1.0625rem;
+  }
+
+  .section {
+    margin-top: 2.6rem;
+    padding-top: 1.4rem;
+  }
+
+  .site-footer {
+    margin-top: 2.6rem;
+  }
+
+  .site-footer .wrap {
+    padding-top: 1.4rem;
+  }
+
+  .note {
+    margin-bottom: 2rem;
+  }
+
+  .pub + .pub {
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+  }
+
+  .pub-title-kind {
+    white-space: normal;
+  }
+
+  .pub-title-kind::before {
+    content: "";
+  }
+
+  .pub-title-kind {
+    display: block;
+    margin-top: 0.25rem;
+  }
+}
+
+/* Wider screens: slightly more air -------------------------- */
+
+@media (min-width: 56rem) {
+  body {
+    font-size: 1.09375rem;
+  }
+
+  .site-header {
+    padding-top: 4.75rem;
+  }
+}
+
+/* Print ---------------------------------------------------- */
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .site-nav,
+  .skip-link {
+    display: none;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8.5pt;
+    word-break: break-all;
+  }
+
+  .pub,
+  .award {
+    break-inside: avoid;
+  }
+
+  .award {
+    background: none;
+    border-left-width: 1pt;
+  }
+}
+
+/* Reduced motion (only the smooth scroll and colour transitions) --- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  a {
+    transition: none;
+  }
+}
